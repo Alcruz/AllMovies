@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_view_backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            bind:src="@drawable/poster_image" />
+
+        <ImageView
+            android:id="@+id/image_view_filter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/transparent_rect"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_backdrop"
+            app:layout_constraintTop_toTopOf="@+id/image_view_backdrop" />
+
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:textColor="#FFFF"
+            android:textSize="50sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:text="Venom" />
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_backdrop"
+            bind:src="@drawable/poster_image" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="36dp"
+            android:alpha="0.2"
+            android:src="@drawable/full_circle"
+            app:layout_constraintStart_toStartOf="@id/text_view_title"
+            app:layout_constraintTop_toBottomOf="@id/text_view_title" />
+
+        <ProgressBar
+            android:id="@+id/progress_rating"
+            style="?android:progressBarStyleHorizontal"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="36dp"
+            android:progress="60"
+            android:progressDrawable="@drawable/circle"
+            app:layout_constraintStart_toStartOf="@id/text_view_title"
+            app:layout_constraintTop_toBottomOf="@id/text_view_title" />
+
+        <TextView
+            android:id="@+id/text_view_rating"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="36dp"
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@id/text_view_title"
+            app:layout_constraintTop_toBottomOf="@id/text_view_title"
+            bind:text="60%" />
+
+        <ImageView
+            android:id="@+id/image_fav_movie"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:src="@drawable/ic_round_favorite_white_48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_title" />
+
+        <TextView
+            android:id="@+id/text_view_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:text="@string/overview_title"
+            android:textColor="#FFFF"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress_rating" />
+
+        <TextView
+            android:id="@+id/text_view_overview_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:textColor="#FFFF"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/text_view_overview"
+            bind:text="When Eddie Brock acquires the powers of a symbiote, he will have to release his alter-ego “Venom” to save his life." />
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
