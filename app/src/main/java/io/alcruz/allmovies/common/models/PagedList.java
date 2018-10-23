@@ -13,7 +13,7 @@ public abstract class PagedList<Result> {
 
     public static <T> PagedList<T> empty() {
         return new AutoValue_PagedList.Builder<T>()
-                .page(null)
+                .page(0)
                 .totalPages(0)
                 .totalResults(0)
                 .results(Lists.<T>newArrayList())

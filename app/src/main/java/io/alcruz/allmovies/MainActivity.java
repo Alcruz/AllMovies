@@ -34,8 +34,7 @@ public class MainActivity extends DaggerAppCompatActivity {
 
     @Inject
     EventBus mEventBus;
-    private MoviesFragment mMoviesFragment;
-    private MoviesFragment mFavoriteMoviesFragment;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -52,6 +51,9 @@ public class MainActivity extends DaggerAppCompatActivity {
             return false;
         }
     };
+
+    private MoviesFragment mMoviesFragment;
+    private MoviesFragment mFavoriteMoviesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
