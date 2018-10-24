@@ -29,14 +29,14 @@ public class NetModule {
 
     @Provides
     @Singleton
-    Cache provideHttpCache(Application application) {
+    Cache providesHttpCache(Application application) {
         int cacheSize = 10 * 1024 * 1024;
         return new Cache(application.getCacheDir(), cacheSize);
     }
 
     @Provides
     @Singleton
-    Gson provideGson() {
+    Gson providesGson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
         return gsonBuilder.create();
@@ -44,7 +44,7 @@ public class NetModule {
 
     @Provides
     @Singleton
-    OkHttpClient provideOkHttpClient(Cache cache) {
+    OkHttpClient providesOkHttpClient(Cache cache) {
         OkHttpClient.Builder client = new OkHttpClient.Builder();
         client.cache(cache);
         client.addInterceptor(new ApiKeyInterceptor(mApiKey));
@@ -53,7 +53,7 @@ public class NetModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
+    Retrofit providesRetrofit(Gson gson, OkHttpClient okHttpClient) {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl(mBaseUrl)
@@ -63,7 +63,7 @@ public class NetModule {
 
     @Provides
     @Singleton
-    TheMovieDbService provideMovieDbService(Retrofit retrofit) {
+    TheMovieDbService providesMovieDbService(Retrofit retrofit) {
         return retrofit.create(TheMovieDbService.class);
     }
 }

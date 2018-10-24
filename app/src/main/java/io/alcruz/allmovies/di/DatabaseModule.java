@@ -11,10 +11,9 @@ import io.alcruz.allmovies.data.MovieDatabase;
 
 @Module
 class DatabaseModule {
-
     @Singleton
     @Provides
-    static MovieDatabase provideMoviesDatabase(Context context) {
+    static MovieDatabase providesMoviesDatabase(Context context) {
         return Room.databaseBuilder(context.getApplicationContext(),
                 MovieDatabase.class, "Movies.db")
                 .build();
